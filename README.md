@@ -22,6 +22,19 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Node 20+ recommended (the project was built on Node 22).
 
+## Vercel
+
+This is a standard Next.js App Router app. `vercel.json` sets `framework` to `nextjs` so leftover dashboard settings from the empty-README import cannot treat `public/` as a static site.
+
+In the Vercel project, under **Settings → Build and Deployment**:
+
+- **Framework Preset:** Next.js (not Other / not static)
+- **Output Directory:** leave the default — do **not** set `public` or `out`
+- **Build Command:** default (`next build` / `npm run build`)
+- **Root Directory:** repository root (`.`)
+
+If `/` 404s but files like `/brand/wordmark.png` load, Vercel is publishing `public/` as static files instead of running Next.js.
+
 ## Pages
 
 - `/` — Home
