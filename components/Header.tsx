@@ -20,11 +20,11 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-navy/10 bg-cream/90 backdrop-blur-md">
-      <Container className="flex h-16 items-center justify-between gap-4 sm:h-[4.25rem]">
+    <header className="sticky top-0 z-50 border-b border-navy/[0.06] bg-cream/80 backdrop-blur-md">
+      <Container className="flex h-[3.75rem] items-center justify-between gap-6 sm:h-[4.5rem] lg:h-20">
         <Logo priority />
         <nav
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center gap-0.5 lg:flex"
           aria-label="Primary"
         >
           {nav.map((item) => {
@@ -36,10 +36,10 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-3 py-1.5 text-sm tracking-tight transition-colors duration-200 motion-reduce:transition-none ${
+                className={`rounded-full px-3.5 py-1.5 text-[0.9375rem] tracking-tight transition-colors duration-200 motion-reduce:transition-none ${
                   active
-                    ? "bg-navy text-cream"
-                    : "text-navy/80 hover:bg-navy/5 hover:text-navy"
+                    ? "bg-mist/45 text-navy"
+                    : "text-navy/70 hover:bg-navy/[0.04] hover:text-navy"
                 }`}
               >
                 {item.label}
@@ -52,7 +52,7 @@ export function Header() {
         </div>
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-navy ring-1 ring-navy/15 lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-navy ring-1 ring-navy/10 lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -86,14 +86,14 @@ export function Header() {
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-navy/10 bg-cream lg:hidden"
+          className="border-t border-navy/[0.06] bg-cream lg:hidden"
         >
-          <Container className="flex flex-col gap-1 py-4">
+          <Container className="flex flex-col gap-1 py-5">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-lg px-3 py-3 text-base text-navy hover:bg-navy/5"
+                className="rounded-2xl px-3 py-3 text-base text-navy hover:bg-navy/5"
                 onClick={() => setOpen(false)}
               >
                 {item.label}

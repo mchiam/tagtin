@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
-import { Container, Eyebrow, SectionHeading } from "@/components/Container";
+import {
+  Card,
+  Container,
+  Eyebrow,
+  SectionHeading,
+} from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
 import { ProcessStrip } from "@/components/ProcessStrip";
 import { WorkTeaser } from "@/components/CaseCard";
@@ -59,21 +64,29 @@ const offers = [
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-navy/10">
-        <Container className="py-16 sm:py-24 lg:py-28">
+      <section className="relative overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 top-8 h-72 w-72 rounded-full bg-mist/35 blur-3xl motion-reduce:hidden sm:h-[22rem] sm:w-[22rem]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-slate/10 blur-3xl motion-reduce:hidden"
+        />
+        <Container className="relative py-20 sm:py-28 lg:py-36">
           <Eyebrow>Singapore · AI-driven fractional marketing</Eyebrow>
-          <h1 className="mt-5 max-w-4xl font-display text-4xl leading-[1.08] text-balance text-navy sm:text-6xl lg:text-[4.25rem]">
+          <h1 className="mt-6 max-w-4xl font-display text-[2.65rem] leading-[1.05] text-balance text-navy sm:text-6xl lg:text-7xl">
             Your marketing team — without hiring one.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal/80 sm:text-xl">
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-charcoal/75 sm:text-xl">
             Tagtin is the AI-driven fractional marketing partner for retail,
             ecommerce, and brands that need senior strategy and content, but
             don’t need a 10-person department.
           </p>
-          <p className="mt-6 font-display text-2xl text-slate italic sm:text-3xl">
+          <p className="mt-8 font-display text-2xl text-slate italic sm:text-3xl">
             {site.taglines.philosophy}
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-3">
             <ButtonLink href="/contact">Book a 2-week Sprint</ButtonLink>
             <ButtonLink href="/studio" variant="ghost">
               Explore Tagtin Studio
@@ -82,19 +95,16 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section
-        aria-label="Brand experience"
-        className="border-b border-navy/10 bg-white/60"
-      >
-        <Container className="py-8">
-          <p className="text-center text-[0.7rem] font-medium uppercase tracking-[0.18em] text-slate">
+      <section aria-label="Brand experience">
+        <Container className="pb-6 sm:pb-10">
+          <p className="text-center text-[0.7rem] font-medium uppercase tracking-[0.2em] text-slate">
             Work for brands the world already knows
           </p>
-          <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-3">
             {proof.map((brand) => (
               <li
                 key={brand}
-                className="font-display text-xl tracking-tight text-navy sm:text-2xl"
+                className="font-display text-xl tracking-tight text-navy/80 sm:text-[1.65rem]"
               >
                 {brand}
               </li>
@@ -103,7 +113,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-24">
+      <section className="py-20 sm:py-28">
         <Container>
           <SectionHeading
             eyebrow="The gap"
@@ -113,29 +123,29 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="pb-16 sm:pb-24">
+      <section className="pb-20 sm:pb-28">
         <Container>
           <SectionHeading
             eyebrow="How we show up"
             title="Three ways in. One standard."
           />
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {solutions.map((item) => (
               <Link
                 key={item.title}
                 href={item.href}
-                className="group flex flex-col rounded-2xl border border-navy/10 bg-white p-6 transition-colors hover:border-slate/50 sm:p-7"
+                className="group flex flex-col rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transform-none sm:p-8"
               >
-                <h3 className="font-display text-2xl text-navy group-hover:text-slate">
+                <h3 className="font-display text-[1.85rem] leading-tight text-navy group-hover:text-slate">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm font-medium text-slate">
                   {item.offer}
                 </p>
-                <p className="mt-4 text-sm leading-relaxed text-charcoal/75">
+                <p className="mt-5 flex-1 text-[0.95rem] leading-relaxed text-charcoal/75">
                   {item.copy}
                 </p>
-                <span className="mt-6 text-sm font-medium text-navy">
+                <span className="mt-8 text-sm font-medium text-navy">
                   Learn more →
                 </span>
               </Link>
@@ -144,53 +154,53 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="bg-navy py-16 text-cream sm:py-20">
-        <Container>
-          <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-mist">
+      <section className="px-5 pb-8 sm:px-8">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-navy px-6 py-16 text-cream sm:px-10 sm:py-20">
+          <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-mist">
             The system
           </p>
-          <div className="mt-4">
+          <div className="mt-5">
             <ProcessStrip invert />
           </div>
-        </Container>
+        </div>
       </section>
 
-      <section className="py-16 sm:py-24">
+      <section className="py-20 sm:py-28">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div className="rounded-2xl border border-navy/10 bg-white p-7">
+          <div className="grid gap-6 lg:grid-cols-2">
+            <Card>
               <h2 className="font-display text-3xl text-navy">Who it’s for</h2>
-              <ul className="mt-5 space-y-3 text-sm leading-relaxed text-charcoal/80">
+              <ul className="mt-6 space-y-3 text-[0.95rem] leading-relaxed text-charcoal/75">
                 <li>Retail, ecommerce, and service brands under ~100 staff.</li>
                 <li>Founders and operators with no marketing team — or a team stretched thin.</li>
                 <li>People who want senior thinking, not more junior hands to brief.</li>
                 <li>Teams ready to use AI as an engine, not as a personality.</li>
               </ul>
-            </div>
-            <div className="rounded-2xl border border-navy/10 bg-white p-7">
+            </Card>
+            <Card>
               <h2 className="font-display text-3xl text-navy">Who it’s not for</h2>
-              <ul className="mt-5 space-y-3 text-sm leading-relaxed text-charcoal/80">
+              <ul className="mt-6 space-y-3 text-[0.95rem] leading-relaxed text-charcoal/75">
                 <li>Enterprises shopping for a 20-person roster and a pitch theatre.</li>
                 <li>Brands whose strategy is “go viral.”</li>
                 <li>Anyone hoping a model will replace the brief.</li>
                 <li>Projects that need mystique more than a customer.</li>
               </ul>
-            </div>
+            </Card>
           </div>
         </Container>
       </section>
 
-      <section className="border-y border-navy/10 bg-white/50 py-16 sm:py-24">
+      <section className="py-8 sm:py-12">
         <Container>
           <SectionHeading
             eyebrow="Selected work"
             title="Story first. Then the numbers."
             lede="Campaigns for names people already trust — Pokémon, Disney, Robinsons, Hello Kitty. We publish results when they are real. We do not invent them."
           />
-          <div className="mt-10">
+          <div className="mt-12">
             <WorkTeaser />
           </div>
-          <div className="mt-8">
+          <div className="mt-10">
             <ButtonLink href="/work" variant="ghost">
               All work
             </ButtonLink>
@@ -198,13 +208,13 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-24">
+      <section className="py-20 sm:py-28">
         <Container>
           <SectionHeading
             eyebrow="Why Tagtin"
             title="Global brand experience. Certified educator. Proven success."
           />
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
             <Why
               title="Global brand experience"
               copy="Campaigns and content for Pokémon, Disney, Robinsons, and Hello Kitty — plus the unglamorous retail work that makes licensed collections actually move."
@@ -221,24 +231,26 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="pb-16 sm:pb-24">
+      <section className="pb-20 sm:pb-28">
         <Container>
           <SectionHeading
             eyebrow="Ways to work"
             title="Sprint. Retainer. Studio."
             lede={site.taglines.offer}
           />
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {offers.map((offer) => (
               <article
                 key={offer.name}
-                className="rounded-2xl bg-navy p-7 text-cream"
+                className="rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] sm:p-8"
               >
-                <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-mist">
+                <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-slate">
                   {offer.time}
                 </p>
-                <h3 className="mt-2 font-display text-3xl">{offer.name}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-cream/80">
+                <h3 className="mt-3 font-display text-3xl text-navy">
+                  {offer.name}
+                </h3>
+                <p className="mt-4 text-[0.95rem] leading-relaxed text-charcoal/75">
                   {offer.copy}
                 </p>
               </article>
@@ -254,9 +266,11 @@ export default function HomePage() {
 
 function Why({ title, copy }: { title: string; copy: string }) {
   return (
-    <article className="rounded-2xl border border-navy/10 bg-white p-6">
+    <article className="rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] sm:p-8">
       <h3 className="font-display text-2xl text-navy">{title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-charcoal/75">{copy}</p>
+      <p className="mt-4 text-[0.95rem] leading-relaxed text-charcoal/75">
+        {copy}
+      </p>
     </article>
   );
 }

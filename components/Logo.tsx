@@ -5,6 +5,7 @@ import { BrandMark } from "./BrandMark";
 type LogoProps = {
   href?: string;
   onDark?: boolean;
+  /** Speech-bubble mark only (favicon-style). Not used in the site header. */
   markOnly?: boolean;
   className?: string;
   priority?: boolean;
@@ -19,21 +20,17 @@ export function Logo({
 }: LogoProps) {
   const content = markOnly ? (
     <span className={`inline-flex items-center ${className}`}>
-      <BrandMark
-        variant={onDark ? "color" : "color"}
-        className="h-9 w-9"
-      />
+      <BrandMark variant="color" className="h-9 w-9" />
       <span className="sr-only">Tagtin</span>
     </span>
   ) : (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <BrandMark variant="color" className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
+    <span className={`inline-flex items-center ${className}`}>
       <Image
         src={onDark ? "/brand/wordmark-white.png" : "/brand/wordmark.png"}
         alt="Tagtin"
-        width={1680}
-        height={480}
-        className="h-6 w-auto sm:h-7"
+        width={1647}
+        height={382}
+        className="h-7 w-auto sm:h-8 lg:h-9"
         priority={priority}
       />
     </span>

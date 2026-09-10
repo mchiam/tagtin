@@ -21,7 +21,7 @@ export function Eyebrow({
 }) {
   return (
     <p
-      className={`text-[0.7rem] font-medium uppercase tracking-[0.18em] text-slate ${className}`}
+      className={`text-[0.7rem] font-medium uppercase tracking-[0.2em] text-slate ${className}`}
     >
       {children}
     </p>
@@ -45,13 +45,13 @@ export function SectionHeading({
         <Eyebrow className={invert ? "text-mist" : ""}>{eyebrow}</Eyebrow>
       ) : null}
       <h2
-        className={`mt-3 font-display text-3xl leading-tight text-balance sm:text-4xl ${invert ? "text-cream" : "text-navy"}`}
+        className={`mt-4 font-display text-3xl leading-[1.15] text-balance sm:text-[2.5rem] ${invert ? "text-cream" : "text-navy"}`}
       >
         {title}
       </h2>
       {lede ? (
         <p
-          className={`mt-4 text-base leading-relaxed sm:text-lg ${invert ? "text-cream/80" : "text-charcoal/80"}`}
+          className={`mt-5 text-base leading-relaxed sm:text-lg ${invert ? "text-cream/80" : "text-charcoal/75"}`}
         >
           {lede}
         </p>
@@ -59,3 +59,18 @@ export function SectionHeading({
     </div>
   );
 }
+
+const cardClass =
+  "rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] sm:p-8";
+
+export function Card({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return <div className={`${cardClass} ${className}`}>{children}</div>;
+}
+
+export { cardClass };

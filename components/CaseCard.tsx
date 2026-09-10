@@ -11,7 +11,7 @@ export function CaseCard({
 }) {
   return (
     <article
-      className={`flex h-full flex-col rounded-2xl border border-navy/10 bg-white p-6 ${featured ? "sm:p-8" : ""}`}
+      className={`flex h-full flex-col rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] ${featured ? "sm:p-9" : "sm:p-8"}`}
     >
       <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-slate">
         {item.brand}
@@ -58,7 +58,7 @@ export function WorkTeaser() {
         <Link
           key={item.slug}
           href="/work"
-          className="group flex flex-col rounded-2xl border border-navy/10 bg-white p-6 transition-colors hover:border-slate/40"
+          className="group flex flex-col rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transform-none sm:p-8"
         >
           <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-slate">
             {item.brand}
