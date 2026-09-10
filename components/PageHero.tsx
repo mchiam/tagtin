@@ -17,10 +17,10 @@ export function PageHero({
   children?: React.ReactNode;
 }) {
   return (
-    <section className="border-b border-navy/10 bg-cream py-14 sm:py-20">
+    <section className="bg-cream py-16 sm:py-24">
       <Container>
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="mt-4 max-w-4xl font-display text-4xl leading-[1.1] text-balance text-navy sm:text-5xl lg:text-6xl">
+        <h1 className="mt-5 max-w-4xl font-display text-4xl leading-[1.08] text-balance text-navy sm:text-5xl lg:text-6xl">
           {title}
         </h1>
         {offer ? (

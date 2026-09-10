@@ -10,9 +10,9 @@ export function CtaBand({
   lede?: string;
 }) {
   return (
-    <section className="bg-navy py-16 text-cream sm:py-20">
+    <section className="bg-navy py-20 text-cream sm:py-24">
       <Container>
-        <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
+        <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
           <div className="max-w-2xl">
             <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-mist">
               {site.taglines.philosophy}

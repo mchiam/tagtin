@@ -6,7 +6,7 @@ import { nav, site } from "@/lib/site";
 export function Footer() {
   return (
     <footer className="border-t border-cream/10 bg-navy text-cream">
-      <Container className="py-14 sm:py-16">
+      <Container className="py-16 sm:py-20">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <Logo onDark />

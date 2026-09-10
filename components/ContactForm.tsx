@@ -79,7 +79,7 @@ export function ContactForm({
   if (status === "sent") {
     return (
       <div
-        className="rounded-2xl border border-navy/10 bg-white p-8"
+        className="rounded-[1.75rem] bg-white p-8 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05]"
         role="status"
       >
         <p className="font-display text-2xl text-navy">Received.</p>
@@ -94,7 +94,7 @@ export function ContactForm({
   return (
     <form
       onSubmit={onSubmit}
-      className="rounded-2xl border border-navy/10 bg-white p-6 shadow-[0_1px_0_rgba(24,48,80,0.04)] sm:p-8"
+      className="rounded-[1.75rem] bg-white p-6 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] sm:p-8"
       noValidate={false}
     >
       {heading ? (
