@@ -167,7 +167,7 @@ export default function HomePage() {
                 <li>Teams ready to use AI as an engine, not as a personality.</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-navy/10 bg-cream p-7">
+            <div className="rounded-2xl border border-navy/10 bg-white p-7">
               <h2 className="font-display text-3xl text-navy">Who it’s not for</h2>
               <ul className="mt-5 space-y-3 text-sm leading-relaxed text-charcoal/80">
                 <li>Enterprises shopping for a 20-person roster and a pitch theatre.</li>
