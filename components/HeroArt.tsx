@@ -1,53 +1,4 @@
-const blobFill =
-  "bg-[radial-gradient(circle_at_32%_28%,#c5d6e2_0%,#407898_55%,#183050_100%)] shadow-[inset_10px_12px_24px_rgba(255,255,255,0.28),inset_-14px_-18px_32px_rgba(24,48,80,0.38),10px_18px_40px_rgba(24,48,80,0.16)]";
-
-const blobFillMist =
-  "bg-[radial-gradient(circle_at_30%_26%,#e8eef2_0%,#a0b8c8_45%,#407898_100%)] shadow-[inset_10px_12px_22px_rgba(255,255,255,0.4),inset_-12px_-16px_28px_rgba(64,120,152,0.35),8px_14px_32px_rgba(24,48,80,0.12)]";
-
-function PlusForm({
-  className = "",
-  size = 148,
-  mist = false,
-}: {
-  className?: string;
-  size?: number;
-  mist?: boolean;
-}) {
-  const fill = mist ? blobFillMist : blobFill;
-  const thick = size * 0.36;
-  return (
-    <div
-      className={`relative ${className}`}
-      style={{ width: size, height: size }}
-    >
-      <span
-        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full ${fill}`}
-        style={{ width: thick, height: size }}
-      />
-      <span
-        className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full ${fill}`}
-        style={{ width: size, height: thick }}
-      />
-    </div>
-  );
-}
-
-function Sphere({
-  className = "",
-  size = 160,
-  mist = false,
-}: {
-  className?: string;
-  size?: number;
-  mist?: boolean;
-}) {
-  return (
-    <div
-      className={`rounded-full ${mist ? blobFillMist : blobFill} ${className}`}
-      style={{ width: size, height: size }}
-    />
-  );
-}
+import { ClayPlus, ClaySphere } from "./ClayPlus";
 
 function FloatCard({
   children,
@@ -60,7 +11,7 @@ function FloatCard({
 }) {
   return (
     <div
-      className={`absolute rounded-2xl bg-white/95 p-3.5 shadow-[0_18px_50px_-20px_rgba(24,48,80,0.45)] ring-1 ring-navy/[0.06] backdrop-blur-sm ${className}`}
+      className={`absolute rounded-2xl bg-white/95 p-3.5 shadow-[0_18px_50px_-20px_rgba(24,48,80,0.45)] ring-1 ring-navy/[0.06] backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 motion-reduce:transform-none ${className}`}
       style={{ animationDelay: delay }}
     >
       {children}
@@ -71,35 +22,36 @@ function FloatCard({
 export function HeroArt() {
   return (
     <div
-      className="relative mx-auto hidden h-[32rem] w-full max-w-[34rem] pointer-events-none lg:block"
+      className="relative mx-auto hidden h-[34rem] w-full max-w-[36rem] lg:block"
       aria-hidden="true"
     >
-      <Sphere
+      <ClaySphere
         mist
-        size={200}
-        className="absolute right-[16%] top-[26%] z-0 animate-float-slow opacity-90"
+        size={168}
+        className="pointer-events-none absolute right-[18%] top-[30%] z-0 animate-float-slow opacity-90"
       />
-      <div className="absolute right-[-6%] top-[-2%] z-[1] animate-float">
-        <PlusForm size={176} />
-      </div>
-      <div className="absolute bottom-[6%] left-[-8%] z-[1] animate-float-slow">
-        <PlusForm mist size={118} className="rotate-45" />
-      </div>
-      <Sphere
-        size={56}
-        className="absolute bottom-[4%] right-[8%] z-[1] animate-float opacity-90"
+      <ClayPlus
+        size={210}
+        className="pointer-events-none absolute -right-3 top-[-6%] z-[1] animate-float-slow"
+      />
+      <ClayPlus
+        mist
+        size={128}
+        className="pointer-events-none absolute bottom-[4%] left-[-10%] z-[1] rotate-45 animate-float"
+      />
+      <ClaySphere
+        size={48}
+        className="pointer-events-none absolute bottom-[2%] right-[10%] z-[1] animate-float opacity-90"
       />
 
-      <FloatCard className="left-0 top-6 z-[2] w-[15.5rem] animate-float" delay="0.2s">
+      <FloatCard className="left-0 top-5 z-[2] w-[15.5rem] animate-float" delay="0.2s">
         <p className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-slate">
           The system
         </p>
         <div className="mt-2.5 flex items-center gap-1.5">
           {["Attract", "Engage", "Retain"].map((step, i) => (
             <span key={step} className="flex items-center gap-1.5">
-              {i > 0 ? (
-                <span className="h-px w-2.5 bg-mist" />
-              ) : null}
+              {i > 0 ? <span className="h-px w-2.5 bg-mist" /> : null}
               <span className="rounded-full bg-cream px-2.5 py-1 text-xs font-medium text-navy">
                 {step}
               </span>
@@ -109,7 +61,7 @@ export function HeroArt() {
       </FloatCard>
 
       <FloatCard
-        className="right-0 top-16 z-[2] w-[11.5rem] animate-float-slow"
+        className="right-[22%] top-[18%] z-[2] w-[11.5rem] animate-float-slow"
         delay="0.8s"
       >
         <p className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-slate">
@@ -120,7 +72,7 @@ export function HeroArt() {
       </FloatCard>
 
       <FloatCard
-        className="right-2 top-[42%] z-[2] w-[13.5rem] animate-float"
+        className="right-1 top-[44%] z-[2] w-[13.5rem] animate-float"
         delay="0.4s"
       >
         <div className="flex items-end justify-between gap-3">
@@ -143,7 +95,7 @@ export function HeroArt() {
       </FloatCard>
 
       <FloatCard
-        className="bottom-[22%] left-4 z-[2] w-[15rem] animate-float-slow"
+        className="bottom-[24%] left-2 z-[2] w-[15rem] animate-float-slow"
         delay="1.1s"
       >
         <div className="flex items-start gap-2.5">
@@ -162,7 +114,7 @@ export function HeroArt() {
       </FloatCard>
 
       <FloatCard
-        className="bottom-4 right-6 z-[2] w-[14.5rem] animate-float"
+        className="bottom-3 right-4 z-[2] w-[14.5rem] animate-float"
         delay="0.6s"
       >
         <p className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-slate">
