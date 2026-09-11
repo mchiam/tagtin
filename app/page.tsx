@@ -8,6 +8,7 @@ import {
   SectionHeading,
 } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
+import { HeroArt, HeroMobileChips } from "@/components/HeroArt";
 import { ProcessStrip } from "@/components/ProcessStrip";
 import { WorkTeaser } from "@/components/CaseCard";
 import { site } from "@/lib/site";
@@ -67,31 +68,35 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-24 top-8 h-72 w-72 rounded-full bg-mist/35 blur-3xl motion-reduce:hidden sm:h-[22rem] sm:w-[22rem]"
+          className="pointer-events-none absolute -right-24 top-0 h-[28rem] w-[28rem] rounded-full bg-mist/30 blur-3xl motion-reduce:hidden"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-slate/10 blur-3xl motion-reduce:hidden"
+          className="pointer-events-none absolute -left-20 bottom-10 h-64 w-64 rounded-full bg-slate/15 blur-3xl motion-reduce:hidden"
         />
-        <Container className="relative py-20 sm:py-28 lg:py-36">
-          <Eyebrow>Singapore · AI-driven fractional marketing</Eyebrow>
-          <h1 className="mt-6 max-w-4xl font-display text-[2.65rem] leading-[1.05] text-balance text-navy sm:text-6xl lg:text-7xl">
-            Your marketing team — without hiring one.
-          </h1>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-charcoal/75 sm:text-xl">
-            Tagtin is the AI-driven fractional marketing partner for retail,
-            ecommerce, and brands that need senior strategy and content, but
-            don’t need a 10-person department.
-          </p>
-          <p className="mt-8 font-display text-2xl text-slate italic sm:text-3xl">
-            {site.taglines.philosophy}
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <ButtonLink href="/contact">Book a 2-week Sprint</ButtonLink>
-            <ButtonLink href="/studio" variant="ghost">
-              Explore Tagtin Studio
-            </ButtonLink>
+        <Container className="relative grid items-center gap-10 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6 lg:py-28">
+          <div>
+            <Eyebrow>Singapore · AI-driven fractional marketing</Eyebrow>
+            <h1 className="mt-6 max-w-xl font-display text-[2.5rem] leading-[1.05] text-balance text-navy sm:text-6xl lg:text-[4.15rem]">
+              Your marketing team — without hiring one.
+            </h1>
+            <p className="mt-7 max-w-md text-lg leading-relaxed text-charcoal/75 sm:text-xl">
+              Tagtin is the AI-driven fractional marketing partner for retail,
+              ecommerce, and brands that need senior strategy and content, but
+              don’t need a 10-person department.
+            </p>
+            <p className="mt-7 font-display text-2xl text-slate italic sm:text-[1.85rem]">
+              {site.taglines.philosophy}
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <ButtonLink href="/contact">Book a 2-week Sprint</ButtonLink>
+              <ButtonLink href="/studio" variant="ghost">
+                Explore Tagtin Studio
+              </ButtonLink>
+            </div>
+            <HeroMobileChips />
           </div>
+          <HeroArt />
         </Container>
       </section>
 
@@ -123,8 +128,14 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="pb-20 sm:pb-28">
-        <Container>
+      <section className="relative pb-20 sm:pb-28">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-[10%] top-4 hidden opacity-80 lg:block"
+        >
+          <span className="block h-24 w-24 rounded-full bg-[radial-gradient(circle_at_32%_28%,#c5d6e2_0%,#407898_58%,#183050_100%)] opacity-60 blur-[1px]" />
+        </div>
+        <Container className="relative">
           <SectionHeading
             eyebrow="How we show up"
             title="Three ways in. One standard."
