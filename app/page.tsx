@@ -10,7 +10,9 @@ import {
 import { CtaBand } from "@/components/CtaBand";
 import { ClayPlus } from "@/components/ClayPlus";
 import { HeroArt, HeroMobileChips } from "@/components/HeroArt";
+import { Parallax } from "@/components/Parallax";
 import { ProcessStrip } from "@/components/ProcessStrip";
+import { Reveal, RevealStagger } from "@/components/Reveal";
 import { WorkTeaser } from "@/components/CaseCard";
 import { site } from "@/lib/site";
 
@@ -67,16 +69,26 @@ export default function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 top-0 h-[28rem] w-[28rem] rounded-full bg-mist/30 blur-3xl motion-reduce:hidden"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-20 bottom-10 h-64 w-64 rounded-full bg-slate/15 blur-3xl motion-reduce:hidden"
-        />
+        <Parallax
+          speed={0.45}
+          className="pointer-events-none absolute -right-24 top-0 motion-reduce:hidden"
+        >
+          <div
+            aria-hidden="true"
+            className="h-[28rem] w-[28rem] rounded-full bg-mist/30 blur-3xl"
+          />
+        </Parallax>
+        <Parallax
+          speed={0.2}
+          className="pointer-events-none absolute -left-20 bottom-10 motion-reduce:hidden"
+        >
+          <div
+            aria-hidden="true"
+            className="h-64 w-64 rounded-full bg-slate/15 blur-3xl"
+          />
+        </Parallax>
         <Container className="relative grid items-center gap-10 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6 lg:py-28">
-          <div>
+          <div className="hero-intro">
             <Eyebrow>Singapore · AI-driven fractional marketing</Eyebrow>
             <h1 className="mt-6 max-w-xl font-display text-[2.5rem] leading-[1.05] text-balance text-navy sm:text-6xl lg:text-[4.15rem]">
               Your marketing team — without hiring one.
@@ -101,7 +113,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section aria-label="Brand experience">
+      <Reveal as="section" aria-label="Brand experience">
         <Container className="pb-6 sm:pb-10">
           <p className="text-center text-[0.7rem] font-medium uppercase tracking-[0.2em] text-slate">
             Work for brands the world already knows
@@ -117,9 +129,9 @@ export default function HomePage() {
             ))}
           </ul>
         </Container>
-      </section>
+      </Reveal>
 
-      <section className="py-20 sm:py-28">
+      <Reveal as="section" className="py-20 sm:py-28">
         <Container>
           <SectionHeading
             eyebrow="The gap"
@@ -127,24 +139,28 @@ export default function HomePage() {
             lede="Canva-and-hope has a ceiling. A head of marketing plus three hires is a six-figure decision you may not need yet. Fractional is the missing rung: senior people, AI-accelerated production, accountable to a calendar."
           />
         </Container>
-      </section>
+      </Reveal>
 
       <section className="relative overflow-hidden pb-20 sm:pb-28">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 top-8 h-72 w-72 rounded-full bg-mist/25 blur-3xl motion-reduce:hidden"
-        />
+        <Parallax
+          speed={0.28}
+          className="pointer-events-none absolute -right-24 top-8 motion-reduce:hidden"
+        >
+          <div className="h-72 w-72 rounded-full bg-mist/25 blur-3xl" />
+        </Parallax>
         <Container>
-          <SectionHeading
-            eyebrow="How we show up"
-            title="Three ways in. One standard."
-          />
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <Reveal>
+            <SectionHeading
+              eyebrow="How we show up"
+              title="Three ways in. One standard."
+            />
+          </Reveal>
+          <RevealStagger className="mt-12 grid gap-6 lg:grid-cols-3">
             {solutions.map((item) => (
               <Link
                 key={item.title}
                 href={item.href}
-                className="group relative flex flex-col overflow-hidden rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transform-none sm:p-8"
+                className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transform-none sm:p-8"
               >
                 {item.title === "Tagtin Studio" ? (
                   <ClayPlus
@@ -167,11 +183,11 @@ export default function HomePage() {
                 </span>
               </Link>
             ))}
-          </div>
+          </RevealStagger>
         </Container>
       </section>
 
-      <section className="px-5 pb-8 sm:px-8">
+      <Reveal as="section" className="px-5 pb-8 sm:px-8">
         <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-navy px-6 py-16 text-cream sm:px-10 sm:py-20">
           <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-mist">
             The system
@@ -180,11 +196,11 @@ export default function HomePage() {
             <ProcessStrip invert />
           </div>
         </div>
-      </section>
+      </Reveal>
 
       <section className="py-20 sm:py-28">
         <Container>
-          <div className="grid gap-6 lg:grid-cols-2">
+          <RevealStagger className="grid gap-6 lg:grid-cols-2">
             <Card>
               <h2 className="font-display text-3xl text-navy">Who it’s for</h2>
               <ul className="mt-6 space-y-3 text-[0.95rem] leading-relaxed text-charcoal/75">
@@ -203,39 +219,45 @@ export default function HomePage() {
                 <li>Projects that need mystique more than a customer.</li>
               </ul>
             </Card>
-          </div>
+          </RevealStagger>
         </Container>
       </section>
 
       <section className="relative overflow-hidden py-8 sm:py-12">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-slate/10 blur-3xl motion-reduce:hidden"
-        />
+        <Parallax
+          speed={0.24}
+          className="pointer-events-none absolute -left-20 bottom-0 motion-reduce:hidden"
+        >
+          <div className="h-56 w-56 rounded-full bg-slate/10 blur-3xl" />
+        </Parallax>
         <Container>
-          <SectionHeading
-            eyebrow="Selected work"
-            title="Story first. Then the numbers."
-            lede="Campaigns for names people already trust — Pokémon, Disney, Robinsons, Hello Kitty. We publish results when they are real. We do not invent them."
-          />
+          <Reveal>
+            <SectionHeading
+              eyebrow="Selected work"
+              title="Story first. Then the numbers."
+              lede="Campaigns for names people already trust — Pokémon, Disney, Robinsons, Hello Kitty. We publish results when they are real. We do not invent them."
+            />
+          </Reveal>
           <div className="mt-12">
             <WorkTeaser />
           </div>
-          <div className="mt-10">
+          <Reveal delayMs={200} className="mt-10">
             <ButtonLink href="/work" variant="ghost">
               All work
             </ButtonLink>
-          </div>
+          </Reveal>
         </Container>
       </section>
 
       <section className="py-20 sm:py-28">
         <Container>
-          <SectionHeading
-            eyebrow="Why Tagtin"
-            title="Global brand experience. Certified educator. Proven success."
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Why Tagtin"
+              title="Global brand experience. Certified educator. Proven success."
+            />
+          </Reveal>
+          <RevealStagger className="mt-12 grid gap-6 md:grid-cols-3">
             <Why
               title="Global brand experience"
               copy="Campaigns and content for Pokémon, Disney, Robinsons, and Hello Kitty — plus the unglamorous retail work that makes licensed collections actually move."
@@ -248,22 +270,24 @@ export default function HomePage() {
               title="Proven success"
               copy="Sell-through, PR value, traffic, and CRM lifts we can point to. If a number is on this site, it was earned on a real brief."
             />
-          </div>
+          </RevealStagger>
         </Container>
       </section>
 
       <section className="pb-20 sm:pb-28">
         <Container>
-          <SectionHeading
-            eyebrow="Ways to work"
-            title="Sprint. Retainer. Studio."
-            lede={site.taglines.offer}
-          />
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Ways to work"
+              title="Sprint. Retainer. Studio."
+              lede={site.taglines.offer}
+            />
+          </Reveal>
+          <RevealStagger className="mt-12 grid gap-6 lg:grid-cols-3">
             {offers.map((offer) => (
               <article
                 key={offer.name}
-                className="rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] sm:p-8"
+                className="h-full rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] sm:p-8"
               >
                 <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-slate">
                   {offer.time}
@@ -276,7 +300,7 @@ export default function HomePage() {
                 </p>
               </article>
             ))}
-          </div>
+          </RevealStagger>
         </Container>
       </section>
 

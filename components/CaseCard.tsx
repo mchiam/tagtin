@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { cases, type CaseStudy } from "@/lib/work";
 import { ButtonLink } from "./ButtonLink";
+import { Reveal } from "./Reveal";
 
 export function CaseCard({
   item,
@@ -54,11 +55,11 @@ function Block({ term, detail }: { term: string; detail: string }) {
 export function WorkTeaser() {
   return (
     <div className="grid gap-5 lg:grid-cols-3">
-      {cases.slice(0, 3).map((item) => (
+      {cases.slice(0, 3).map((item, i) => (
+        <Reveal key={item.slug} delayMs={i * 110} className="h-full">
         <Link
-          key={item.slug}
           href="/work"
-          className="group flex flex-col rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transform-none sm:p-8"
+          className="group flex h-full flex-col rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transform-none sm:p-8"
         >
           <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-slate">
             {item.brand}
@@ -71,6 +72,7 @@ export function WorkTeaser() {
           </p>
           <p className="mt-5 text-sm font-medium text-slate">Read the work →</p>
         </Link>
+        </Reveal>
       ))}
     </div>
   );
