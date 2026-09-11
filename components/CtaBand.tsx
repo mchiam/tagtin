@@ -1,5 +1,6 @@
 import { ButtonLink } from "./ButtonLink";
 import { Container } from "./Container";
+import { Reveal } from "./Reveal";
 import { site } from "@/lib/site";
 
 export function CtaBand({
@@ -12,7 +13,7 @@ export function CtaBand({
   return (
     <section className="bg-navy py-20 text-cream sm:py-24">
       <Container>
-        <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
+        <Reveal className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
           <div className="max-w-2xl">
             <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-mist">
               {site.taglines.philosophy}
@@ -30,7 +31,7 @@ export function CtaBand({
               Explore Tagtin Studio
             </ButtonLink>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

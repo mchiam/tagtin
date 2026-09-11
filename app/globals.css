@@ -12,6 +12,7 @@
     serif;
   --animate-float: float 6.5s ease-in-out infinite;
   --animate-float-slow: float 9s ease-in-out infinite;
+  --animate-rise-in: rise-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes float {
@@ -22,6 +23,73 @@
   50% {
     transform: translateY(-10px);
   }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.35rem);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-intro > * {
+    animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-intro > *:nth-child(1) {
+    animation-delay: 0.04s;
+  }
+  .hero-intro > *:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+  .hero-intro > *:nth-child(3) {
+    animation-delay: 0.22s;
+  }
+  .hero-intro > *:nth-child(4) {
+    animation-delay: 0.32s;
+  }
+  .hero-intro > *:nth-child(5) {
+    animation-delay: 0.42s;
+  }
+  .hero-intro > *:nth-child(6) {
+    animation-delay: 0.52s;
+  }
+
+  .hero-intro-chips > li {
+    animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .hero-intro-chips > li:nth-child(1) {
+    animation-delay: 0.55s;
+  }
+  .hero-intro-chips > li:nth-child(2) {
+    animation-delay: 0.65s;
+  }
+  .hero-intro-chips > li:nth-child(3) {
+    animation-delay: 0.75s;
+  }
+}
+
+.header-elevated {
+  border-bottom-color: rgb(24 48 80 / 0.1);
+  box-shadow: 0 12px 36px -22px rgb(24 48 80 / 0.5);
 }
 
 html {

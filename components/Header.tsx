@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Logo } from "./Logo";
 import { ButtonLink } from "./ButtonLink";
 import { Container } from "./Container";
@@ -11,6 +11,8 @@ import { nav, sprintHref } from "@/lib/site";
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -19,8 +21,52 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const header = headerRef.current;
+    const bar = progressRef.current;
+    if (!header || !bar) return;
+
+    let raf = 0;
+    let lastElevated = false;
+    const update = () => {
+      const y = window.scrollY;
+      const max =
+        document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? Math.min(Math.max(y / max, 0), 1) : 0})`;
+      const elevated = y > 16;
+      if (elevated !== lastElevated) {
+        lastElevated = elevated;
+        header.classList.toggle("header-elevated", elevated);
+      }
+    };
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        update();
+      });
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-navy/[0.06] bg-cream/80 backdrop-blur-md">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50 border-b border-navy/[0.06] bg-cream/80 backdrop-blur-md transition-[box-shadow,border-color] duration-300 motion-reduce:transition-none"
+    >
+      <div
+        ref={progressRef}
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-slate"
+        aria-hidden="true"
+      />
       <Container className="flex h-[3.75rem] items-center justify-between gap-6 sm:h-[4.5rem] lg:h-20">
         <Logo priority />
         <nav

@@ -1,3 +1,4 @@
+import { Reveal } from "./Reveal";
 import { site } from "@/lib/site";
 
 const steps = [
@@ -25,7 +26,7 @@ export function ProcessStrip({ invert = false }: { invert?: boolean }) {
       </p>
       <ol className="mt-8 grid gap-6 md:grid-cols-3">
         {steps.map((step, index) => (
-          <li key={step.name} className="relative">
+          <Reveal as="li" key={step.name} delayMs={index * 120} className="relative">
             <div className="flex items-center gap-3">
               <span
                 className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-medium ${invert ? "bg-cream text-navy" : "bg-navy text-cream"}`}
@@ -49,7 +50,7 @@ export function ProcessStrip({ invert = false }: { invert?: boolean }) {
             >
               {step.copy}
             </p>
-          </li>
+          </Reveal>
         ))}
       </ol>
     </div>
