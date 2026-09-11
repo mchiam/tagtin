@@ -76,21 +76,21 @@ export function HeroArt() {
     >
       <Sphere
         mist
-        size={210}
-        className="absolute right-[12%] top-[22%] animate-float-slow opacity-90 blur-[0.5px]"
+        size={200}
+        className="absolute right-[16%] top-[26%] z-0 animate-float-slow opacity-90"
       />
-      <div className="absolute right-[4%] top-[8%] animate-float">
-        <PlusForm size={158} />
+      <div className="absolute right-[-6%] top-[-2%] z-[1] animate-float">
+        <PlusForm size={176} />
       </div>
-      <div className="absolute bottom-[18%] left-[6%] animate-float-slow">
-        <PlusForm mist size={92} className="rotate-45" />
+      <div className="absolute bottom-[6%] left-[-8%] z-[1] animate-float-slow">
+        <PlusForm mist size={118} className="rotate-45" />
       </div>
       <Sphere
-        size={64}
-        className="absolute bottom-[8%] right-[22%] animate-float opacity-80"
+        size={56}
+        className="absolute bottom-[4%] right-[8%] z-[1] animate-float opacity-90"
       />
 
-      <FloatCard className="left-0 top-6 w-[15.5rem] animate-float" delay="0.2s">
+      <FloatCard className="left-0 top-6 z-[2] w-[15.5rem] animate-float" delay="0.2s">
         <p className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-slate">
           The system
         </p>
@@ -109,7 +109,7 @@ export function HeroArt() {
       </FloatCard>
 
       <FloatCard
-        className="right-0 top-16 w-[11.5rem] animate-float-slow"
+        className="right-0 top-16 z-[2] w-[11.5rem] animate-float-slow"
         delay="0.8s"
       >
         <p className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-slate">
@@ -120,7 +120,7 @@ export function HeroArt() {
       </FloatCard>
 
       <FloatCard
-        className="right-2 top-[42%] w-[13.5rem] animate-float"
+        className="right-2 top-[42%] z-[2] w-[13.5rem] animate-float"
         delay="0.4s"
       >
         <div className="flex items-end justify-between gap-3">
@@ -143,7 +143,7 @@ export function HeroArt() {
       </FloatCard>
 
       <FloatCard
-        className="bottom-[22%] left-4 w-[15rem] animate-float-slow"
+        className="bottom-[22%] left-4 z-[2] w-[15rem] animate-float-slow"
         delay="1.1s"
       >
         <div className="flex items-start gap-2.5">
@@ -162,7 +162,7 @@ export function HeroArt() {
       </FloatCard>
 
       <FloatCard
-        className="bottom-4 right-6 w-[14.5rem] animate-float"
+        className="bottom-4 right-6 z-[2] w-[14.5rem] animate-float"
         delay="0.6s"
       >
         <p className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-slate">

@@ -128,14 +128,8 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="relative pb-20 sm:pb-28">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-[10%] top-4 hidden opacity-80 lg:block"
-        >
-          <span className="block h-24 w-24 rounded-full bg-[radial-gradient(circle_at_32%_28%,#c5d6e2_0%,#407898_58%,#183050_100%)] opacity-60 blur-[1px]" />
-        </div>
-        <Container className="relative">
+      <section className="pb-20 sm:pb-28">
+        <Container>
           <SectionHeading
             eyebrow="How we show up"
             title="Three ways in. One standard."
