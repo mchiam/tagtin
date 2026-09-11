@@ -8,6 +8,8 @@ import {
   SectionHeading,
 } from "@/components/Container";
 import { CtaBand } from "@/components/CtaBand";
+import { ClayPlus } from "@/components/ClayPlus";
+import { HeroArt, HeroMobileChips } from "@/components/HeroArt";
 import { ProcessStrip } from "@/components/ProcessStrip";
 import { WorkTeaser } from "@/components/CaseCard";
 import { site } from "@/lib/site";
@@ -67,31 +69,35 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-24 top-8 h-72 w-72 rounded-full bg-mist/35 blur-3xl motion-reduce:hidden sm:h-[22rem] sm:w-[22rem]"
+          className="pointer-events-none absolute -right-24 top-0 h-[28rem] w-[28rem] rounded-full bg-mist/30 blur-3xl motion-reduce:hidden"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-slate/10 blur-3xl motion-reduce:hidden"
+          className="pointer-events-none absolute -left-20 bottom-10 h-64 w-64 rounded-full bg-slate/15 blur-3xl motion-reduce:hidden"
         />
-        <Container className="relative py-20 sm:py-28 lg:py-36">
-          <Eyebrow>Singapore · AI-driven fractional marketing</Eyebrow>
-          <h1 className="mt-6 max-w-4xl font-display text-[2.65rem] leading-[1.05] text-balance text-navy sm:text-6xl lg:text-7xl">
-            Your marketing team — without hiring one.
-          </h1>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-charcoal/75 sm:text-xl">
-            Tagtin is the AI-driven fractional marketing partner for retail,
-            ecommerce, and brands that need senior strategy and content, but
-            don’t need a 10-person department.
-          </p>
-          <p className="mt-8 font-display text-2xl text-slate italic sm:text-3xl">
-            {site.taglines.philosophy}
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <ButtonLink href="/contact">Book a 2-week Sprint</ButtonLink>
-            <ButtonLink href="/studio" variant="ghost">
-              Explore Tagtin Studio
-            </ButtonLink>
+        <Container className="relative grid items-center gap-10 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-6 lg:py-28">
+          <div>
+            <Eyebrow>Singapore · AI-driven fractional marketing</Eyebrow>
+            <h1 className="mt-6 max-w-xl font-display text-[2.5rem] leading-[1.05] text-balance text-navy sm:text-6xl lg:text-[4.15rem]">
+              Your marketing team — without hiring one.
+            </h1>
+            <p className="mt-7 max-w-md text-lg leading-relaxed text-charcoal/75 sm:text-xl">
+              Tagtin is the AI-driven fractional marketing partner for retail,
+              ecommerce, and brands that need senior strategy and content, but
+              don’t need a 10-person department.
+            </p>
+            <p className="mt-7 font-display text-2xl text-slate italic sm:text-[1.85rem]">
+              {site.taglines.philosophy}
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <ButtonLink href="/contact">Book a 2-week Sprint</ButtonLink>
+              <ButtonLink href="/studio" variant="ghost">
+                Explore Tagtin Studio
+              </ButtonLink>
+            </div>
+            <HeroMobileChips />
           </div>
+          <HeroArt />
         </Container>
       </section>
 
@@ -123,7 +129,11 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="pb-20 sm:pb-28">
+      <section className="relative overflow-hidden pb-20 sm:pb-28">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 top-8 h-72 w-72 rounded-full bg-mist/25 blur-3xl motion-reduce:hidden"
+        />
         <Container>
           <SectionHeading
             eyebrow="How we show up"
@@ -134,18 +144,25 @@ export default function HomePage() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group flex flex-col rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transform-none sm:p-8"
+                className="group relative flex flex-col overflow-hidden rounded-[1.75rem] bg-white p-7 shadow-[0_22px_50px_-28px_rgba(24,48,80,0.42)] ring-1 ring-navy/[0.05] transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transform-none sm:p-8"
               >
-                <h3 className="font-display text-[1.85rem] leading-tight text-navy group-hover:text-slate">
+                {item.title === "Tagtin Studio" ? (
+                  <ClayPlus
+                    mist
+                    size={128}
+                    className="pointer-events-none absolute -bottom-7 -right-8 z-0 opacity-90 transition-transform duration-500 group-hover:translate-y-1 motion-reduce:transform-none"
+                  />
+                ) : null}
+                <h3 className="relative z-[1] font-display text-[1.85rem] leading-tight text-navy group-hover:text-slate">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm font-medium text-slate">
+                <p className="relative z-[1] mt-2 text-sm font-medium text-slate">
                   {item.offer}
                 </p>
-                <p className="mt-5 flex-1 text-[0.95rem] leading-relaxed text-charcoal/75">
+                <p className="relative z-[1] mt-5 flex-1 text-[0.95rem] leading-relaxed text-charcoal/75">
                   {item.copy}
                 </p>
-                <span className="mt-8 text-sm font-medium text-navy">
+                <span className="relative z-[1] mt-8 text-sm font-medium text-navy">
                   Learn more →
                 </span>
               </Link>
@@ -190,7 +207,11 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-8 sm:py-12">
+      <section className="relative overflow-hidden py-8 sm:py-12">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-slate/10 blur-3xl motion-reduce:hidden"
+        />
         <Container>
           <SectionHeading
             eyebrow="Selected work"
